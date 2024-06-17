@@ -8,13 +8,7 @@ import (
 	"io"
 )
 
-// Message holds the details of an encrypted message
-type Message struct {
-	Algo       Algo
-	Ciphertext []byte
-	Nonce      []byte
-}
-
+// ErrInvalidAESKey returned of a key is an invalid length
 var ErrInvalidAESKey = errors.New("invalid key")
 
 // Encrypt implements AES GCM encryption
