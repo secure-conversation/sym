@@ -17,6 +17,7 @@ package main
 import (
   "crypto/aes"
   "crypto/rand"
+  "github.com/secure-conversation/sym"
 )
 
 func main() {
@@ -26,7 +27,7 @@ func main() {
   key := make([]byte, 2*aes.BlockSize)
   rand.Read(key)
 
-  m, _ := Encrypt(msg, key)
+  m, _ := sym.Encrypt(msg, key)
 
   b, _ := m.Marshal()
 
