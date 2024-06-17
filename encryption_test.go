@@ -8,6 +8,20 @@ import (
 	"testing"
 )
 
+func ExampleEncrypt() {
+	msg := []byte("Hello World")
+
+	key := make([]byte, 2*aes.BlockSize)
+	rand.Read(key)
+
+	m, _ := Encrypt(msg, key)
+
+	msg1, _ := Decrypt(m, key)
+
+	fmt.Println(bytes.Equal(msg, msg1))
+	// Output: true
+}
+
 func TestEncrypt(t *testing.T) {
 	msg := []byte("Hello World")
 
